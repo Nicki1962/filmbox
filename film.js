@@ -104,3 +104,24 @@ const filmy = [
 		premiera: '2022-12-24',
 	},
 ]
+
+const formular = document.querySelector("#note-form");
+const onSubmit = (e) => {
+	e.preventDefault();
+	const formInput = document.querySelector("#message-input");
+	if (formInput.value.length === 0) {
+		formInput.classList.add("is-invalid");
+		formInput.focus();
+		return
+	};
+	const tick = document.getElementById("terms-checkbox");
+		if (tick.checked === false) {
+			tick.classList.add("is-invalid");
+			tick.focus();
+			return
+		}
+	formular.innerHTML += `<p class="card-text">${formInput.value}</p>`;
+};
+
+
+formular.addEventListener("submit", onSubmit) 
